@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorScreen">#E8E8E8</color>
-    <color name="colorButtonNumber">#FFFFFF</color>
-    <color name="colorButtonFunc">#E8E8E8</color>
+    <color name="colorButtonNumber">#FAFAFA</color>
+    <color name="colorButtonFunc">#F2F4F3</color>
     <color name="colorLine">#9C9C9C</color>
     <color name="colorResult">#00CD00</color>
     <color name="colorInput">#006400</color>

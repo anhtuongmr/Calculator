@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -16,29 +17,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView txtInput;
     private TextView txtResult;
 
-    private Button btnNum0;
-    private Button btnNum1;
-    private Button btnNum2;
-    private Button btnNum3;
-    private Button btnNum4;
-    private Button btnNum5;
-    private Button btnNum6;
-    private Button btnNum7;
-    private Button btnNum8;
-    private Button btnNum9;
+    private ImageButton btnNum0;
+    private ImageButton btnNum1;
+    private ImageButton btnNum2;
+    private ImageButton btnNum3;
+    private ImageButton btnNum4;
+    private ImageButton btnNum5;
+    private ImageButton btnNum6;
+    private ImageButton btnNum7;
+    private ImageButton btnNum8;
+    private ImageButton btnNum9;
 
-    private Button btnClear;
-    private Button btnBackSpace;
+    private ImageButton btnClear;
+    private ImageButton btnBackSpace;
 
-    private Button btnSum;
-    private Button btnSub;
-    private Button btnMul;
-    private Button btnDiv;
+    private ImageButton btnSum;
+    private ImageButton btnSub;
+    private ImageButton btnMul;
+    private ImageButton btnDiv;
 
-    private Button btnBracket;
-    private Button btnDot;
-    private Button btnNeg;
-    private Button btnResult;
+    private ImageButton btnBracket;
+    private ImageButton btnDot;
+    private ImageButton btnNeg;
+    private ImageButton btnResult;
 
     private int numberOfBracketOpen = 0;
 
@@ -54,29 +55,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtInput = (TextView) findViewById(R.id.txtInput);
         txtResult = (TextView) findViewById(R.id.txtResult);
 
-        btnNum0 = (Button) findViewById(R.id.btnNum0);
-        btnNum1 = (Button) findViewById(R.id.btnNum1);
-        btnNum2 = (Button) findViewById(R.id.btnNum2);
-        btnNum3 = (Button) findViewById(R.id.btnNum3);
-        btnNum4 = (Button) findViewById(R.id.btnNum4);
-        btnNum5 = (Button) findViewById(R.id.btnNum5);
-        btnNum6 = (Button) findViewById(R.id.btnNum6);
-        btnNum7 = (Button) findViewById(R.id.btnNum7);
-        btnNum8 = (Button) findViewById(R.id.btnNum8);
-        btnNum9 = (Button) findViewById(R.id.btnNum9);
+        btnNum0 = (ImageButton) findViewById(R.id.btnNum0);
+        btnNum1 = (ImageButton) findViewById(R.id.btnNum1);
+        btnNum2 = (ImageButton) findViewById(R.id.btnNum2);
+        btnNum3 = (ImageButton) findViewById(R.id.btnNum3);
+        btnNum4 = (ImageButton) findViewById(R.id.btnNum4);
+        btnNum5 = (ImageButton) findViewById(R.id.btnNum5);
+        btnNum6 = (ImageButton) findViewById(R.id.btnNum6);
+        btnNum7 = (ImageButton) findViewById(R.id.btnNum7);
+        btnNum8 = (ImageButton) findViewById(R.id.btnNum8);
+        btnNum9 = (ImageButton) findViewById(R.id.btnNum9);
 
-        btnClear = (Button) findViewById(R.id.btnClear);
-        btnBackSpace = (Button) findViewById(R.id.btnBackSpace);
+        btnClear = (ImageButton) findViewById(R.id.btnClear);
+        btnBackSpace = (ImageButton) findViewById(R.id.btnBackSpace);
 
-        btnSum = (Button) findViewById(R.id.btnSum);
-        btnSub = (Button) findViewById(R.id.btnSub);
-        btnMul = (Button) findViewById(R.id.btnMul);
-        btnDiv = (Button) findViewById(R.id.btnDiv);
+        btnSum = (ImageButton) findViewById(R.id.btnSum);
+        btnSub = (ImageButton) findViewById(R.id.btnSub);
+        btnMul = (ImageButton) findViewById(R.id.btnMul);
+        btnDiv = (ImageButton) findViewById(R.id.btnDiv);
 
-        btnBracket = (Button) findViewById(R.id.btnBracket);
-        btnDot = (Button) findViewById(R.id.btnDot);
-        btnNeg = (Button) findViewById(R.id.btnNeg);
-        btnResult = (Button) findViewById(R.id.btnResult);
+        btnBracket = (ImageButton) findViewById(R.id.btnBracket);
+        btnDot = (ImageButton) findViewById(R.id.btnDot);
+        btnNeg = (ImageButton) findViewById(R.id.btnNeg);
+        btnResult = (ImageButton) findViewById(R.id.btnResult);
     }
 
     public void setEventClickViews() {
@@ -172,11 +173,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnMul:
                 // TO DO
-                txtInput.append("*");
+                txtInput.append("×");
                 break;
             case R.id.btnDiv:
                 // TO DO
-                txtInput.append("/");
+                txtInput.append("÷");
                 break;
 
             case R.id.btnBracket:
@@ -199,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(txtInput.getText().toString());
                 // Thuật toán tính toán biểu thức
                 if (arrOperation.size() >= arrNumber.size() || arrOperation.size() < 1) {
-                    txtResult.setText("Syntax ERROR");
+                    txtResult.setText("Syntax error");
                 }
                 else {
                     for (int i = 0; i < (arrNumber.size() - 1); i++) {
@@ -220,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     result = result - arrNumber.get(i + 1);
                                 }
                                 break;
-                            case "*":
+                            case "×":
                                 if (i == 0) {
                                     result = arrNumber.get(i) * arrNumber.get(i + 1);
                                 }
@@ -228,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     result = result * arrNumber.get(i + 1);
                                 }
                                 break;
-                            case "/":
+                            case "÷":
                                 if (i == 0) {
                                     result = arrNumber.get(i) / arrNumber.get(i + 1);
                                 }
@@ -271,8 +272,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             char theEndOFNumber = number.charAt(lenght - 1);
             if (theEndOFNumber == '+'
                     || theEndOFNumber == '-'
-                    || theEndOFNumber == '*'
-                    || theEndOFNumber == '/'
+                    || theEndOFNumber == '×'
+                    || theEndOFNumber == '÷'
                     || theEndOFNumber == '(') {
                 tmp += "(";
                 numberOfBracketOpen += 1;
@@ -309,10 +310,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case '-':
                     arrOperation.add(cArray[i] + "");
                     break;
-                case '*':
+                case '×':
                     arrOperation.add(cArray[i] + "");
                     break;
-                case '/':
+                case '÷':
                     arrOperation.add(cArray[i] + "");
                     break;
                 default:
